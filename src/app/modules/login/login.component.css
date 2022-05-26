@@ -1,0 +1,137 @@
+mat-card {
+  width: 600px;
+  text-align: center;
+  height: 370px;
+  background-color: #b6aeae;
+  border-radius: 25px; 
+}
+
+
+
+.banner {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(music.jpg);
+    background-size:auto;
+    background-position: center;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-up {
+  font-size:medium;
+}
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(65, 58, 59);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(8, 8, 8);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(44, 44, 40);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+
+.mat-flat-button {
+  color: white;
+  background-color: #2e2a29;
+}
+
+.header {
+  text-align: center;
+  color: rgb(41, 31, 31);
+}
+.full-width {
+  
+  width: 80%;
+}
+
+.button-row {
+  padding-top: 5px;
+}
+
+.forget-password {
+  padding-left: 0px;
+}
+
+.emailInput {
+  padding-top: 10px;
+
+}
+
+.contentBody {
+  padding: 60px 1rem;
+  background: #c50d01;
+  display: block;
+}
+
+.aLink {
+  float: right;
+  padding-right: 60px;
+  text-decoration: none;
+  color: black;
+}
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #504847;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.loader {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  border: 4px solid #Fff;
+animation: loader 2s infinite ease;
+}
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+
+@keyframes loader {
+  0% { transform: rotate(0deg);}
+  25% { transform: rotate(180deg);}
+  50% { transform: rotate(180deg);}
+  75% { transform: rotate(360deg);}
+  100% { transform: rotate(360deg);}
+  
+}
+
+@keyframes loader-inner {
+  0% { height: 0%;}
+  25% { height: 0%;}
+  50% { height: 100%;}
+  75% { height: 100%;}
+  100% { height: 0%;}
+}
