@@ -47,7 +47,7 @@ export class UserService {
     return this.httpClient.get<number>(`${this.URL}/users/count`);
   }
   public createUser(user: User): Observable<User> {
-    return this.httpClient.post<User>(`${this.URL}/users`, user);
+    return this.httpClient.post<User>(`${this.URL}/api/users`, user);
   }
 
   public updateUser(user: User, userId: number): Observable<User> {

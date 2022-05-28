@@ -46,7 +46,7 @@
        <button mat-flat-button>Login</button>
        <hr style="width: 50%;margin: auto; margin-top: 10px;" >
        <p></p>
-       <p class="sign-up">Don't have an account? <a href=""> Sign up</a></p>
+       <p class="sign-up">Don't have an account? <a [routerLink]="[]" (click)="navigate()" routerLinkActive="active"> Sign up</a></p>
      </form>
    </mat-card-content>
   </mat-card>

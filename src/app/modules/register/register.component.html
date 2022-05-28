@@ -1,0 +1,81 @@
+<div *ngIf="showSpinner" id="preloader" class="loader-wrapper">
+  <span class="loader"><span class="loader-inner"></span></span>
+</div>
+<div class="banner">
+  
+ <mat-card *ngIf="!showSpinner">
+   <mat-card-content>
+     <div class="header">
+       <p></p>
+       <p></p>
+       <h1 class="title">SIGN UP</h1>
+     </div>
+     <form (ngSubmit)="onSignUp(registerForm)" name="registerForm" [formGroup]="registerForm">
+         <div class="firstNameInput">
+         <mat-form-field class="full-width" appearance="outline">
+           <mat-label>First Name</mat-label>
+           <input
+             formControlName="firstName"
+             matInput
+             placeholder="Enter firstName address" required
+           />
+           <mat-error *ngIf="!registerForm.controls['firstName'].valid">
+               First Name is required
+             </mat-error>
+         </mat-form-field>
+       </div>
+
+       <div class="lastNameInput">
+         <mat-form-field class="full-width" appearance="outline">
+           <mat-label>Last Name</mat-label>
+           <input
+             formControlName="lastName"
+             matInput
+             placeholder="Enter lastName address" required
+           />
+           <mat-error *ngIf="!registerForm.controls['lastName'].valid">
+               Last Name is required
+             </mat-error>
+         </mat-form-field>
+       </div>
+
+       <div class="emailInput">
+         <mat-form-field class="full-width" appearance="outline">
+           <mat-label>Email</mat-label>
+           <input
+             formControlName="email"
+             matInput
+             placeholder="Enter email address" required
+           />
+           <mat-error *ngIf="!registerForm.controls['email'].valid">
+               Email is required
+             </mat-error>
+         </mat-form-field>
+       </div>
+  
+       <div>
+         <mat-form-field class="full-width" appearance="outline">
+           <mat-label>Password</mat-label>
+           <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" required />
+           <button  mat-icon-button 
+           matSuffix (click)="hide = !hide"
+           [attr.aria-label]="'Hide Password'"
+           [attr.aria-pressed]="hide"
+           >
+           <mat-icon>
+             {{hide ? 'visibility_off' : 'visibility'}}
+           </mat-icon>
+       </button>
+       <mat-error *ngIf="!registerForm.controls['password'].valid">
+           Password is required
+         </mat-error>
+       </mat-form-field>
+       </div>
+       <button mat-flat-button>Sign up</button>
+       <hr style="width: 50%;margin: auto; margin-top: 10px;" >
+       <p></p>
+       <p class="log-in">Already have an account? <a [routerLink]="[]" (click)="navigate()" routerLinkActive="active">Log in</a></p>
+     </form>
+   </mat-card-content>
+  </mat-card>
+</div>

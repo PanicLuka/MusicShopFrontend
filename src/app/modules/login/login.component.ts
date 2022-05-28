@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("Login page is loading!")
+    // console.log("Login page is loading!")
   }
 
   loginForm: FormGroup = this.formBuilder.group({
@@ -49,9 +49,7 @@ export class LoginComponent implements OnInit {
 
     this.userService.loginUser(this.loginCredentials)
       .subscribe((response) => {
-        // console.log(response)
         const token = response
-        // console.log(token)
         localStorage.setItem("JWT_NAME", token);
 
         this.invalidLogin = false;
@@ -62,7 +60,7 @@ export class LoginComponent implements OnInit {
         this.showSpinner = true;
         setTimeout(() => {
           this.showSpinner = false;
-          this.router.navigate(['/login']);
+          this.router.navigate(['/home']);
         }, 1500)
 
 
@@ -74,6 +72,13 @@ export class LoginComponent implements OnInit {
 
   }
 
+  navigate() {
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.showSpinner = false;
+      this.router.navigate(['/register']);
+    }, 1200)
+  }
   removeMessage() {
     this.invalidLogin = true;
   }
