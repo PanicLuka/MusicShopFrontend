@@ -1,1 +1,65 @@
-<p>cart works!</p>
+<ng-container *ngIf="true">
+    <div class="container">
+         <div class="card-table">
+        <div class="card-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+
+                        <th>Sr.No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of products; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ item.productName}}</td>
+                        <td><img style="width: 120px;" src="https://picsum.photos/200" alt=""></td>
+                        <td>{{ item.productDescription}}</td>
+                        <th>${{ item.productPrice}}</th>
+                        <td>{{item.quantity}}</td>
+                        <td>${{item.total}}</td>
+
+                        <td>
+                            <button (click)="removeCartItem(item)" class="btn-danger"><i class="fas fa-trash"></i></button>
+                        </td>
+                        <button>
+                       <i (click)="increaseQuantity(item)" class="fas fa-plus"></i>
+
+                        </button>
+                        <button>
+                       <i (click)="decreaseQuantity(item)" class="fas fa-minus"></i>
+
+                        </button>
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+</ng-container>
+
+<ng-container>
+<div *ngIf="false" class="container">
+    <div class="card">
+        <h5 class="card-title">My Cart</h5>
+        </div>
+
+        <div class="center">
+                <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="" width="50%" height="50%">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item</h6>
+            <button class="btn">Shop now!</button>
+    </div>
+</div>
+</ng-container>
+

@@ -312,16 +312,13 @@ m270 79 c8 -5 9 -159 5 -563 -9 -722 -27 -1514 -36 -1571 l-7 -45 -49 3 c-68
 
 <div class="container">
     <div class="row">
-        <ng-container *ngFor="let item of productList">
-                <div class="card col-md-3">
-                    <img src="https://picsum.photos/200
-
-
-" alt="">
+        <ng-container *ngFor="let item of productList | filter:searchKey:'productName'">
+                <div  class="card col-md-3">
+                    <img (click)="viewProduct(item.productId)" src="https://picsum.photos/200" alt="">
                     <h5>{{item.productName}}</h5>
                     <p>{{item.productDescription}}</p>
                     <p><strong>Price:</strong> ${{item.productPrice}}</p>
-                    <button class="btn">Add to cart</button>
+                    <button class="btn" (click)="addToCart(item)">Add to cart</button>
                 </div>
         </ng-container>
         

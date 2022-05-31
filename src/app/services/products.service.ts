@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from '../models/product.model';
 
@@ -9,9 +9,17 @@ import { Product } from '../models/product.model';
 })
 export class ProductsService {
 
+  private productId = new BehaviorSubject<number>(1)
+
+  currentProductId = this.productId.asObservable();
   private URL = environment.musicShop_URL;
 
+
   constructor(private httpClient: HttpClient) { }
+
+  changeProductId(productId: number) {
+    this.productId.next(productId);
+  }
 
   public getProducts(pageSize: number, pageNumber: number): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${this.URL}/api/products`, {

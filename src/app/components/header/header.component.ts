@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, ParamMap, Params, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
+import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -16,8 +17,11 @@ export class HeaderComponent implements OnInit {
   currentRoute!: string;
   currentRouteId!: string;
   user!: User;
+  cartListCount: number = 0;
+  searchTerm!: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(private cartService: CartService, private activatedRoute: ActivatedRoute, private router: Router,
+    private userService: UserService) {
     router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     )
@@ -30,41 +34,30 @@ export class HeaderComponent implements OnInit {
         }
       });
 
-    console.log();
+
 
   }
 
 
 
   ngOnInit(): void {
-    // this.router.events.pipe(
-    //   filter(event => event instanceof NavigationEnd)
-    // )
-    //   .subscribe(event => {
-    //     console.log(event);
-    //   });
+    this.cartService.getCartProducts()
+      .subscribe(res => {
+        this.cartListCount = res.length;
+      })
 
 
-
-    // this.router.events.subscribe((url: any) => console.log(url));
-    // console.log(this.router.url);  
-
-    // if (this.currentRouteId === '1' || this.currentRouteId === '3') {
-    //   this.isShown = false;
-    // }
-    // this.route.paramMap.subscribe(
-    //   (params: ParamMap) => {
-
-    //     console.log(params.get(this.loginRoute))
-
-    //   }
-    // )
-    // let r = this.activatedRoute.url;
-    // this.activatedRoute.paramMap.subscribe((params) => {
-    //   this.registerRoute = params.get('login')!;
-    // });
-    // console.log(this.router.url);
   }
 
+  toShoppingCart() {
+    this.router.navigate(['/cart'])
+  }
+
+  search(event: any) {
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    // console.log(this.searchTerm);
+
+    this.cartService.search.next(this.searchTerm);
+  }
 
 }

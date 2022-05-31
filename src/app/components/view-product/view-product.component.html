@@ -1,0 +1,13 @@
+<div class="container">
+    <ng-container>
+                <div class="card col-md-3">
+                    <img src="https://picsum.photos/200" alt="">
+                    <h5>{{ product.productName }}</h5>
+                    <p>{{product.productDescription}}</p>
+                    <p><strong>Price:</strong> ${{product.productPrice}}</p>
+                    <button class="btn" (click)="addToCart()" >Add to cart</button>
+                </div>
+        </ng-container>
+</div>
+
+

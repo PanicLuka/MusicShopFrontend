@@ -5,13 +5,13 @@
             </i>
                 <strong style="color: aliceblue; padding-top: 5px; padding-left: 5px;">Music Shop</strong>
                 <div *ngIf="isShown" class="form-group">
-                    <input type="text" class="form-control" placeholder="search product">
+                    <input type="text" class="form-control"  [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search product">
                 </div>
                 <span *ngIf="isShown"class="fas fa-search search-icon"></span>
         </div>
-        <button *ngIf="isShown" class="color: bg-black">
+        <button (click)="toShoppingCart()" *ngIf="isShown" class="color: bg-black">
             <i style="font-size: 30px; color: aliceblue; padding-right: 8px;" class="fas fa-cart-plus"></i>
-            <div style="font-size: 10px;" class="badge bg-danger">5</div>
+            <div style="font-size: 10px;" class="badge bg-danger">{{ cartListCount }}</div>
         </button>
     </div>
 </header>
