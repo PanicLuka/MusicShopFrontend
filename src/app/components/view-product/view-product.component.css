@@ -6,7 +6,7 @@
     word-wrap: break-word;
     background: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid rgba(10, 10, 10, 0.2);
     border-radius: .25rem;
 
 }
@@ -14,6 +14,7 @@
 
 
 .btn {
+    width: 220px;
     color: #fff;
     background-color: black;
 }
@@ -21,11 +22,12 @@
 .card {
     padding: 20px;
     margin: 50px;
+    width: 1200px;
 }
 
 .card img {
-   width: 200px;
-   height: 200px;
+   width: 600px;
+   height: 700px;
    margin-bottom: 15px;
    transition: 0.3s ease-in-out; 
    border-radius: 10px;
@@ -36,4 +38,19 @@
     transform: scale(1.1);
 }
 
+
+.description {
+   position: absolute;
+   padding-left: 58%;
+   top: 10%;
+
+
+}
+
+.quantity {
+   position: absolute;
+
+   top: 150%;
+
+}
 

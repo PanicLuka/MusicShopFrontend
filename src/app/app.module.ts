@@ -13,6 +13,7 @@ import { JwtHelperService, JwtInterceptor, JWT_OPTIONS } from '@auth0/angular-jw
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './shared/filter.pipe';
 import { ViewProductComponent } from './components/view-product/view-product.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ViewProductComponent } from './components/view-product/view-product.com
     CartComponent,
     ProductsComponent,
     FilterPipe,
-    ViewProductComponent
+    ViewProductComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

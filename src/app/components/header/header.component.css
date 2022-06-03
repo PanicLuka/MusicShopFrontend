@@ -11,3 +11,9 @@
     top: 21px;
     color: rgb(68, 66, 66);
 }
+
+.btn-profile {
+   position: absolute;
+    left: 93.5%;
+    top: 13px;
+}

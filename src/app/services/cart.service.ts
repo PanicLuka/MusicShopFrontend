@@ -6,16 +6,15 @@ import { Product } from '../models/product.model';
   providedIn: 'root'
 })
 export class CartService {
-
+  index!: any;
   public cartItemList: Product[] = []
   public productList = new BehaviorSubject<Product[]>([]);
   public search = new BehaviorSubject<string>("");
 
-
   constructor() { }
 
   getCartProducts() {
-    console.log(this.productList)
+    // console.log(this.productList)
 
     return this.productList.asObservable();
 
@@ -43,11 +42,11 @@ export class CartService {
   }
 
   removeCartItem(product: any) {
-    this.cartItemList.map((a: any, index: any) => {
-      if (product.id === a.id) {
-        this.cartItemList.splice(index, 1);
-      }
-    })
+    this.index = this.cartItemList.findIndex(e => e.productId === product.productId);
+    console.log(this.index);
+
+    this.cartItemList.splice(this.index, 1);
+
   }
   removeAllCartItems() {
     this.cartItemList = [];

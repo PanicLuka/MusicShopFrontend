@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: 'register', loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule) },
   { path: 'home', component: ProductsComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'viewProduct', component: ViewProductComponent }
+  { path: 'viewProduct', component: ViewProductComponent },
+  { path: 'profile', component: ProfileComponent }
 ]
 
 @NgModule({

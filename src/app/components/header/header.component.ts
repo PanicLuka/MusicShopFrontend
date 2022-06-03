@@ -28,10 +28,12 @@ export class HeaderComponent implements OnInit {
       .subscribe(event => {
         this.currentRoute = event.toString();
         this.currentRouteId = this.currentRoute.charAt(28);
-        console.log(this.currentRouteId);
+        // console.log(this.currentRouteId);
         if (this.currentRouteId === 'l' || this.currentRouteId === 'r') {
           this.isShown = false;
         }
+
+
       });
 
 
@@ -53,11 +55,25 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/cart'])
   }
 
+  toProfilePage() {
+    this.router.navigate(['/profile'])
+  }
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
     // console.log(this.searchTerm);
 
     this.cartService.search.next(this.searchTerm);
+  }
+
+  profileIcon(): boolean {
+    let token = localStorage.getItem('JWT_NAME');
+    // console.log('this is token' + token)
+    if (token === null) {
+      return false;
+    } else {
+      return true;
+    }
+
   }
 
 }

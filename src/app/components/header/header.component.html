@@ -9,6 +9,9 @@
                 </div>
                 <span *ngIf="isShown"class="fas fa-search search-icon"></span>
         </div>
+        <button *ngIf="profileIcon()" (click)="toProfilePage()" class="btn-profile color: bg-black">
+            <i style="font-size: 30px; color: aliceblue; padding-right: 8px;" class="fas fa-user"></i>
+        </button>
         <button (click)="toShoppingCart()" *ngIf="isShown" class="color: bg-black">
             <i style="font-size: 30px; color: aliceblue; padding-right: 8px;" class="fas fa-cart-plus"></i>
             <div style="font-size: 10px;" class="badge bg-danger">{{ cartListCount }}</div>

@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   isLoading = false;
   showSpinner = false;
   user!: User;
-  registerCredentials: User = { email: "", firstName: "", lastName: "", password: "" };
+  registerCredentials: User = { email: "", firstName: "", lastName: "", password: "", userId: 0 };
 
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 

@@ -12,10 +12,13 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
 
+
   productId!: number;
   productList!: Product[];
   public productCount!: number;
   searchKey: string = "";
+  filterTerm!: string;
+  filterKey: string = "";
   constructor(private categoryService: CategoryService, private productService: ProductsService, private cartService: CartService,
     private router: Router) {
   }
@@ -34,7 +37,7 @@ export class ProductsComponent implements OnInit {
           this.categoryService.getCategoryById(a.categoryId)
             .subscribe(res => {
               a.category = res.categoryName;
-              console.log('is a category of a ' + a.category)
+              // console.log('is a category of a ' + a.category)
             })
         })
         // console.log(this.productList)
@@ -43,6 +46,11 @@ export class ProductsComponent implements OnInit {
         this.cartService.search.subscribe((val: any) => {
           this.searchKey = val;
         })
+
+        // this.cartService.filter.subscribe((val: any) => {
+        //   this.filterKey = val;
+        //   console.log(this.filterKey + 'is a filter')
+        // })
       })
 
     this.productService.currentProductId
@@ -52,6 +60,8 @@ export class ProductsComponent implements OnInit {
   }
 
   addToCart(item: Product) {
+    localStorage.setItem('products', JSON.stringify(item));
+
     this.cartService.addToCart(item)
 
   }
@@ -63,7 +73,14 @@ export class ProductsComponent implements OnInit {
     // this.productId = itemId;
   }
 
+  // filterByCategory(category: string) {
+  //   this.filterTerm = category;
+  //   // (event.target as HTMLInputElement).value;
+  //   // console.log(this.searchTerm);
 
+  //   // console.log('this is category ' + this.filterTerm)
+  //   this.cartService.filter.next(this.filterTerm);
+  // }
 
   // clickEvent() {
   //   console.log(this.productService.getProductById(1))

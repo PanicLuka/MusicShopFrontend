@@ -43,6 +43,10 @@ export class UserService {
     return this.httpClient.get<User>(`${this.URL}/users/${userId}`);
   }
 
+  public getUserByEmail(email: string): Observable<User> {
+    return this.httpClient.get<User>(`${this.URL}/api/users/user/${email}`);
+  }
+
   public getUsersCount(): Observable<number> {
     return this.httpClient.get<number>(`${this.URL}/users/count`);
   }
@@ -51,7 +55,7 @@ export class UserService {
   }
 
   public updateUser(user: User, userId: number): Observable<User> {
-    return this.httpClient.put<User>(`${this.URL}/users/${userId}`, user);
+    return this.httpClient.put<User>(`${this.URL}/api/users/${userId}`, user);
   }
 
   public deleteUser(userId: number): Observable<User> {
@@ -76,6 +80,14 @@ export class UserService {
 
     let role = decodedJWT['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
     return role;
+  }
+
+  public getCurrentUserEmail(): string {
+    let token = localStorage.getItem("JWT_NAME");
+    let decodedJWT = JSON.parse(window.atob(token!.split('.')[1]));
+
+    let email = decodedJWT['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']
+    return email;
   }
 
 

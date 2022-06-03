@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -11,7 +12,7 @@ export class CartComponent implements OnInit {
 
   public products: Product[] = []
   public grandTotal: number = 0;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
 
 
@@ -27,7 +28,6 @@ export class CartComponent implements OnInit {
         // console.log(this.products + 'is a product')
       })
 
-
   }
 
   removeCartItem(item: Product) {
@@ -38,24 +38,41 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCartItems();
   }
 
-  increaseQuantity(item: Product) {
-
-
-    item.quantity++;
-    item.total = item.quantity * item.productPrice;
-
-
-
+  showProduct(): boolean {
+    if (this.products.length > 0) {
+      return true;
+    }
+    return false;
   }
 
-  decreaseQuantity(item: Product) {
-    if (item.quantity > 1) {
-      item.quantity--;
+  dontShowProduct(): boolean {
+    if (this.products.length == 0) {
+      return true;
     }
-    else {
-      return;
-    }
-    item.total = item.quantity * item.productPrice;
-
+    return false;
   }
+
+  goToHomePage() {
+    this.router.navigate(['/home'])
+  }
+  // increaseQuantity(item: Product) {
+
+
+  //   item.quantity++;
+  //   item.total = item.quantity * item.productPrice;
+
+
+
+  // }
+
+  // decreaseQuantity(item: Product) {
+  //   if (item.quantity > 1) {
+  //     item.quantity--;
+  //   }
+  //   else {
+  //     return;
+  //   }
+  //   item.total = item.quantity * item.productPrice;
+
+  // }
 }

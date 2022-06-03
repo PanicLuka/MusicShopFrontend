@@ -22,7 +22,7 @@ export class ViewProductComponent implements OnInit {
     this.productService.currentProductId
       .subscribe(productId => this.productId = productId)
 
-    console.log(this.productId);
+    // console.log('curren id ' + this.productId);
 
     this.productService.getProductById(this.productId)
       .subscribe(res => {
@@ -40,7 +40,28 @@ export class ViewProductComponent implements OnInit {
 
   addToCart() {
     this.cartService.addToCart(this.product)
-    console.log(this.product + ' this is a product');
+    // console.log(this.product + ' this is a product');
+
+  }
+
+  increaseQuantity(item: Product) {
+
+
+    item.quantity++;
+    item.total = item.quantity * item.productPrice;
+
+
+
+  }
+
+  decreaseQuantity(item: Product) {
+    if (item.quantity > 1) {
+      item.quantity--;
+    }
+    else {
+      return;
+    }
+    item.total = item.quantity * item.productPrice;
 
   }
 

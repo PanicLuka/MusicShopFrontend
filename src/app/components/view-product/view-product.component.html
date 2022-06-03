@@ -2,12 +2,34 @@
     <ng-container>
                 <div class="card col-md-3">
                     <img src="https://picsum.photos/200" alt="">
-                    <h5>{{ product.productName }}</h5>
-                    <p>{{product.productDescription}}</p>
-                    <p><strong>Price:</strong> ${{product.productPrice}}</p>
-                    <button class="btn" (click)="addToCart()" >Add to cart</button>
+                    <div class="description">
+                            <h1>{{ product.productName }}</h1>
+                            <p>{{product.productDescription}}</p>
+                            <p><strong>Price:</strong>${{product.productPrice}}</p>
+                            <button class="btn" (click)="addToCart()" >Add to cart</button>
+                            <p></p>
+                            <h6>Free Shipping: </h6>
+                            <p>From China to Serbia via AliExpress Saver Shipping 
+                                estimated delivery: 50-50 days </p>
+                            <div class="quantity">
+                                <p>Quantity: </p>
+                                <button (click)="decreaseQuantity(product)">
+                                <i class="fas fa-minus"></i>
+                                </button>
+                                <button>{{product.quantity}}</button>
+                                <button (click)="increaseQuantity(product)">
+                                <i class="fas fa-plus"></i>
+
+                                </button>
+                            </div>
+                    </div>
                 </div>
         </ng-container>
+        
 </div>
 
+<!-- <h5>{{ product.productName }}</h5>
+                    <p>{{product.productDescription}}</p>
+                    <p><strong>Price:</strong> ${{product.productPrice}}</p>
+                    <button class="btn" (click)="addToCart()" >Add to cart</button> -->
 
