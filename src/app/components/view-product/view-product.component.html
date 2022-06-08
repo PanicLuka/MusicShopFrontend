@@ -1,7 +1,7 @@
 <div class="container">
     <ng-container>
                 <div class="card col-md-3">
-                    <img src="https://picsum.photos/200" alt="">
+                    <img [src]="createImgPath(product.imgPath)" alt="">
                     <div class="description">
                             <h1>{{ product.productName }}</h1>
                             <p>{{product.productDescription}}</p>

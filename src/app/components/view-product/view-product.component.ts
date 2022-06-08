@@ -30,7 +30,9 @@ export class ViewProductComponent implements OnInit {
         this.product = res;
         Object.assign(this.product, { quantity: 1 }, { total: this.product.productPrice })
         console.log(this.product)
-      })
+      }), (error: Error) => {
+        console.log(error.name + ' ' + error.message);
+      }
 
 
 
@@ -65,5 +67,10 @@ export class ViewProductComponent implements OnInit {
 
   }
 
+
+  public createImgPath = (serverPath: String) => {
+
+    return `http://localhost:5000/${serverPath}`;
+  }
 
 }

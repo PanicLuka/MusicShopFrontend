@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './shared/filter.pipe';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { UploadComponent } from './components/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +26,18 @@ import { ProfileComponent } from './components/profile/profile.component';
     ProductsComponent,
     FilterPipe,
     ViewProductComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddProductComponent,
+    UploadComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule
   ],
   providers: [
     UserService,

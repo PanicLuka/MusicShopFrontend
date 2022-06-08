@@ -1,17 +1,25 @@
 <header>
     <div class="navbar bg-black shadow-sm">
         <div class="navbar-brand align-item-center d-flex">
+            
             <i style="font-size:40px; color: aliceblue; padding-left: 20px;" class="fas fa-drum">&nbsp;
             </i>
                 <strong style="color: aliceblue; padding-top: 5px; padding-left: 5px;">Music Shop</strong>
                 <div *ngIf="isShown" class="form-group">
                     <input type="text" class="form-control"  [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search product">
+                    <div class="searchIcon">
+                <span *ngIf="isShown"class="fas fa-search search-icon" ></span>
+
+                    </div>
+                    
                 </div>
-                <span *ngIf="isShown"class="fas fa-search search-icon"></span>
+                <div class="profileIcon">
+                        <button *ngIf="profileIcon()" (click)="toProfilePage()" class="btn-profile color: bg-black">
+                                <i style="font-size: 30px; color: aliceblue; padding-right: 8px;" class="fas fa-user"></i>
+                        </button>
+                    </div>
         </div>
-        <button *ngIf="profileIcon()" (click)="toProfilePage()" class="btn-profile color: bg-black">
-            <i style="font-size: 30px; color: aliceblue; padding-right: 8px;" class="fas fa-user"></i>
-        </button>
+        
         <button (click)="toShoppingCart()" *ngIf="isShown" class="color: bg-black">
             <i style="font-size: 30px; color: aliceblue; padding-right: 8px;" class="fas fa-cart-plus"></i>
             <div style="font-size: 10px;" class="badge bg-danger">{{ cartListCount }}</div>

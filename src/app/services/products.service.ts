@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ProductCreate } from '../models/product-create';
 import { Product } from '../models/product.model';
 
 @Injectable({
@@ -21,17 +22,32 @@ export class ProductsService {
     this.productId.next(productId);
   }
 
-  public getProducts(pageSize: number, pageNumber: number): Observable<Product[]> {
+  public getProducts(_pageNumber: number, pageSize: number,): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${this.URL}/api/products`, {
       params: {
-        pageSize: pageSize,
-        pageNumber: pageNumber
+        _pageNumber: _pageNumber,
+        pageSize: pageSize
       }
     })
   }
 
+  public getProductsCount(): Observable<number> {
+    return this.httpClient.get<number>(`${this.URL}/api/products/count`);
+  }
+
+  public getProductsByCategory(category: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(`${this.URL}/api/products/filter/${category}`);
+  }
+
+
   public getProductById(productId: number): Observable<Product> {
     return this.httpClient.get<Product>(`${this.URL}/api/products/${productId}`);
   }
+
+  public createProduct(product: ProductCreate): Observable<ProductCreate> {
+    return this.httpClient.post<ProductCreate>(`${this.URL}/api/products`, product);
+  }
+
+
 
 }

@@ -1,21 +1,22 @@
 <div class="card-top container-fluid">
+    
     <div class="container d-flex">
         <div class="category" >
-            <a >
+            <a (click)="categorizeProducts('Strings')">
                 <i class="fas fa-guitar fa-4x" style="padding-top: 7px; color: black;"></i>
                 <p></p>
                 <h6><b><em>Strings</em></b></h6>
             </a>
         </div>
         <div class="category-five">
-            <a >
+            <a (click)="categorizeProducts('Percussion')">
                 <i class="fas fa-drum fa-4x" style="padding-top: 7px; color: black;"></i>
                 <p></p>
                 <h6><b><em>Percussion</em></b></h6>
             </a>
         </div>
         <div class="category-two">
-            <a >
+            <a (click)="categorizeProducts('Brass')">
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +83,7 @@ c16 -13 34 -37 40 -52 10 -26 113 -517 128 -609 5 -36 2 -47 -25 -84 -31 -43
             </a>
         </div>
         <div class="category-three">
-            <a >
+            <a (click)="categorizeProducts('Woodwind')">
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg style="padding-top: 10px;" version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -232,7 +233,7 @@ l30 4 -33 2 c-25 1 -41 -7 -63 -28z"/>
             </a>
         </div>
         <div class="category-four">
-            <a >
+            <a (click)="categorizeProducts('Keyboards')">
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg style="padding-top: 10px;" version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -307,20 +308,83 @@ m270 79 c8 -5 9 -159 5 -563 -9 -722 -27 -1514 -36 -1571 l-7 -45 -49 3 c-68
                 <h6><b><em>Keyboards</em></b></h6>
             </a>
         </div>
+        <div class="container d-flex">
+        <div class="all" >
+            <a (click)="getAllProducts()">
+                <i class="fas fa-music fa-4x" style="padding-top: 7px; color: black;"></i>
+                <p></p>
+                <h6><b><em>All products</em></b></h6>
+            </a>
+        </div>
     </div>
 </div>
 
+
+
+   <!-- <div class="brands">
+       <details>
+  <summary></summary>
+  <nav class="menu">
+    <ul>
+  <li>
+    <input id="c1" type="checkbox">
+    <label for="c1">Checkbox</label>
+  </li>
+  <li>
+    <input id="c1" type="checkbox">
+    <label for="c1">Checkbox</label>
+  </li>
+  <li>
+    <input id="c1" type="checkbox">
+    <label for="c1">Checkbox</label>
+  </li>
+   <li>
+    <input id="c1" type="checkbox">
+    <label for="c1">Checkbox</label>
+  </li>
+   <li>
+    <input id="c1" type="checkbox">
+    <label for="c1">Checkbox</label>
+  </li>
+   <li>
+    <input id="c1" type="checkbox">
+    <label for="c1">Checkbox</label>
+  </li>
+   <li>
+    <input id="c1" type="checkbox">
+    <label for="c1">Checkbox</label>
+  </li>
+  
+
+    </ul>
+  </nav>
+</details>
+   </div> -->
 <div class="container">
+    
     <div class="row">
         <ng-container *ngFor="let item of productList | filter:searchKey:'productName'">
                 <div  class="card col-md-3">
-                    <img (click)="viewProduct(item.productId)" src="https://picsum.photos/200" alt="">
+                    <img (click)="viewProduct(item.productId)" [src]="createImgPath(item.imgPath)" alt="product picture">
                     <h5>{{item.productName}}</h5>
                     <p>{{item.productDescription}}</p>
                     <p><strong>Price:</strong> ${{item.productPrice}}</p>
+                    <p><strong>Brand:</strong> {{item.brand}}</p>
                     <button class="btn" (click)="addToCart(item)">Add to cart</button>
                 </div>
         </ng-container>
         
     </div>
+    
+</div>
+<div class="paginator">
+<mat-paginator
+    showFirstLastButtons
+    [length]="productCount"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[6, 12, 24, 100]"
+    (page)="onPageChange($event)">
+        
+    </mat-paginator>
+
 </div>

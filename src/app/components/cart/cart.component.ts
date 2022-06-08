@@ -6,7 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
 
@@ -26,7 +26,11 @@ export class CartComponent implements OnInit {
         // })
         // console.log(this.grandTotal)
         // console.log(this.products + 'is a product')
-      })
+      }), (error: Error) => {
+        console.log(error.name + ' ' + error.message);
+
+      }
+
 
   }
 
@@ -54,6 +58,11 @@ export class CartComponent implements OnInit {
 
   goToHomePage() {
     this.router.navigate(['/home'])
+  }
+
+  public createImgPath = (serverPath: String) => {
+
+    return `http://localhost:5000/${serverPath}`;
   }
   // increaseQuantity(item: Product) {
 

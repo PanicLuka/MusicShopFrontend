@@ -1,0 +1,47 @@
+<section class="create" >
+    <h1>Add new product</h1>
+    <form>
+      <div class="mb-3">
+        <label for="name">Product Name</label>
+        <input type="text" class="form-control" id="name" name="name" 
+        placeholder="Enter your name" [(ngModel)]="productName">
+      </div>
+      <div class="mb-3">
+        <label for="address">Product Description</label>
+        <input type="text" class="form-control" id="address" name="address" 
+        placeholder="Enter product Description" [(ngModel)]="productDescription">
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Product Price</label>
+        <input type="text" class="form-control" id="address" name="address" 
+        placeholder="Enter your price" [(ngModel)]="productPrice">
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Category</label>
+        <input type="text" class="form-control" id="address" name="address" 
+        placeholder="Enter your Category" [(ngModel)]="categoryName">
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Brand</label>
+        <input type="text" class="form-control" id="address" name="address" 
+        placeholder="Enter your Brand" [(ngModel)]="brandName">
+      </div>
+
+      <div class="mb-3">
+        <label for="address">Employee</label>
+        <input type="text" class="form-control" id="address" name="address" 
+        placeholder="Enter Employee" [(ngModel)]="employeeId">
+      </div>
+                
+                    
+      <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+      <div class="row">
+        <div class="offset-md-5 col-md-2">
+          <button type="button" class="btn btn-primary" (click)="onCreate()">Create </button>
+        </div>
+      </div>
+    </form>
+  </section>

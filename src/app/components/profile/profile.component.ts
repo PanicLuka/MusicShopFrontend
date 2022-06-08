@@ -37,7 +37,9 @@ export class ProfileComponent implements OnInit {
         if (res.lastName !== null) {
           this.surname = res.lastName;
         }
-      })
+      }), (error: Error) => {
+        console.log(error.name + ' ' + error.message);
+      }
 
   }
 
@@ -45,7 +47,9 @@ export class ProfileComponent implements OnInit {
     this.userService.updateUser(this.user as User, this.user.userId as number)
       .subscribe(res => {
         this.user = res;
-      })
+      }), (error: Error) => {
+        console.log(error.name + ' ' + error.message);
+      }
     // console.log(this.user);
 
   }

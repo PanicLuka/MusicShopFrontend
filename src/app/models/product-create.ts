@@ -1,15 +1,9 @@
-export class Product {
-    productId!: number;
+export class ProductCreate {
     productName!: String;
     productPrice!: number;
     productDescription!: String;
     categoryId!: number;
-    category!: String;
     imgPath!: String;
     brandId!: number;
-    brand!: String;
     employeeId!: number;
-    quantity!: number;
-    total!: number;
-
 }
