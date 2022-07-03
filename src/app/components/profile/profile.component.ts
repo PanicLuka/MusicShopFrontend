@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
         if (res.firstName !== null) {
           this.firstName = res.firstName;
 
+          this.user.password = '';
 
         }
         if (res.lastName !== null) {

@@ -1,0 +1,18 @@
+<section class="create" >
+    <h1>Add new brand</h1>
+    <form>
+      <div class="mb-3">
+        <label for="name">Brand Name</label>
+        <input type="text" class="form-control" id="name" name="name" 
+        placeholder="Enter your name" [(ngModel)]="brandName">
+      </div>
+     
+                
+                    
+      <div class="row">
+        <div class="offset-md-5 col-md-2">
+          <button type="button" class="btn btn-primary" (click)="createBrand()">Create </button>
+        </div>
+      </div>
+    </form>
+  </section>

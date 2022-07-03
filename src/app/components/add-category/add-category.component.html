@@ -1,0 +1,23 @@
+<section class="create" >
+    <h1>Add new category</h1>
+    <form>
+      <div class="mb-3">
+        <label for="name">Category Name</label>
+        <input type="text" class="form-control" id="name" name="name" 
+        placeholder="Enter your name" [(ngModel)]="categoryName">
+      </div>
+     
+       <div class="mb-3">
+        <label for="name">Category Description</label>
+        <input type="text" class="form-control" id="name" name="name" 
+        placeholder="Enter your Description" [(ngModel)]="categoryDescription">
+      </div>
+                
+                    
+      <div class="row">
+        <div class="offset-md-5 col-md-2">
+          <button type="button" class="btn btn-primary" (click)="createCategory()">Create </button>
+        </div>
+      </div>
+    </form>
+  </section>

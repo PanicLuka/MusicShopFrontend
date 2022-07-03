@@ -29,4 +29,8 @@ export class BrandsService {
   public getBrandIdByBrandName(brand: String): Observable<number> {
     return this.httpClient.get<number>(`${this.URL}/api/brands/brand/${brand}`);
   }
+
+  public createBrand(brand: Brand): Observable<Brand> {
+    return this.httpClient.post<Brand>(`${this.URL}/api/brands`, brand);
+  }
 }

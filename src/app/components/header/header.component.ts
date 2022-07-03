@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, ParamMap, Params, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
 import { CartService } from 'src/app/services/cart.service';
@@ -49,6 +49,8 @@ export class HeaderComponent implements OnInit {
       }), (error: Error) => {
         console.log(error.name + ' ' + error.message);
       }
+
+    // this.cartListCount = this.cartService.getCartProducts().length;
 
 
   }

@@ -5,16 +5,19 @@ import { Observable } from 'rxjs';
 const token = localStorage.getItem("JWT_NAME");
 
 
+
+
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
     req = req.clone({
-      setHeaders: {
-        'Authorization': 'Bearer ' + token,
-      },
+      headers: req.headers.set('Authorization', 'Bearer ' + token)
     });
 
     return next.handle(req);
   }
+
+
 
 }

@@ -27,7 +27,7 @@ export class UploadComponent implements OnInit {
     const formData = new FormData();
     let file = formData.append('file', fileToUpload, fileToUpload.name);
 
-    console.log(file);
+    // console.log(file);
     this.http.post('http://localhost:5000/api/images', formData, { reportProgress: true, observe: 'events' })
       .subscribe((event: any) => {
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Basket } from 'src/app/models/Basket';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -10,6 +11,8 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
+
+  public basket!: Basket;
   public products: Product[] = []
   public grandTotal: number = 0;
   constructor(private cartService: CartService, private router: Router) { }
@@ -31,14 +34,37 @@ export class CartComponent implements OnInit {
 
       }
 
+    this.products.forEach((p: Product) => {
+      delete p.productId
+    })
+
+    this.basket = {
+      products: this.products
+    }
+
+
+    // console.log(this.basket.products);
+
+    // this.products = this.cartService.getCartProducts();
 
   }
 
   removeCartItem(item: Product) {
+    localStorage.removeItem('product' + ' ' + item.productId);
     this.cartService.removeCartItem(item)
   }
 
   emptyCart() {
+    // this.cartService.getCartProducts()
+    //   .subscribe(res => {
+    //     const length = res.length;
+    //     // console.log(length + ' is a length');
+    // for(let i = 0;i<length;i++){
+    //   localStorage
+    // }
+
+
+    //   })
     this.cartService.removeAllCartItems();
   }
 
@@ -54,6 +80,16 @@ export class CartComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  toCheckout() {
+    this.cartService.storeBasket(this.basket)
+      .subscribe(res => {
+        console.log();
+
+      })
+
+    this.router.navigate(['/payment'])
   }
 
   goToHomePage() {

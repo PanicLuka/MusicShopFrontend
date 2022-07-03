@@ -17,10 +17,11 @@
 
 
 .profileIcon {
-    position: relative;
-    left: 68%;
+    position: absolute;
+    float: right;
+    left: 92%;
     height: 12px;
-    top: 5px;
+    top: 25%;
 }
 
 
@@ -36,3 +37,6 @@
     // top: 13px;
 }
 
+#drum {
+    cursor: pointer;
+}

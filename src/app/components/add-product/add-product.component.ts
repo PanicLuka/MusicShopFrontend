@@ -30,9 +30,8 @@ export class AddProductComponent implements OnInit {
 
   constructor(private categoryService: CategoryService,
     private productService: ProductsService,
-    private brandService: BrandsService,
-    private router: Router,
-    private httpClient: HttpClient) { }
+    private brandService: BrandsService
+  ) { }
 
   ngOnInit(): void {
     console.log();
@@ -65,7 +64,7 @@ export class AddProductComponent implements OnInit {
 
             this.productService.createProduct(this.product)
               .subscribe(res => {
-                console.log(res);
+                console.log();
               }), (error: Error) => {
                 console.log(error.name + ' ' + error.message);
               }

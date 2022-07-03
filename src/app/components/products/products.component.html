@@ -1,21 +1,22 @@
+<app-header></app-header>
 <div class="card-top container-fluid">
     
     <div class="container d-flex">
-        <div class="category" >
+        <div class="category" id="category">
             <a (click)="categorizeProducts('Strings')">
                 <i class="fas fa-guitar fa-4x" style="padding-top: 7px; color: black;"></i>
                 <p></p>
                 <h6><b><em>Strings</em></b></h6>
             </a>
         </div>
-        <div class="category-five">
+        <div class="category-five" id="category">
             <a (click)="categorizeProducts('Percussion')">
                 <i class="fas fa-drum fa-4x" style="padding-top: 7px; color: black;"></i>
                 <p></p>
                 <h6><b><em>Percussion</em></b></h6>
             </a>
         </div>
-        <div class="category-two">
+        <div class="category-two" id="category">
             <a (click)="categorizeProducts('Brass')">
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
@@ -82,7 +83,7 @@ c16 -13 34 -37 40 -52 10 -26 113 -517 128 -609 5 -36 2 -47 -25 -84 -31 -43
                 <h6><b><em>Brass</em></b></h6>
             </a>
         </div>
-        <div class="category-three">
+        <div class="category-three" id="category">
             <a (click)="categorizeProducts('Woodwind')">
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
@@ -232,7 +233,7 @@ l30 4 -33 2 c-25 1 -41 -7 -63 -28z"/>
                 <h6><b><em>Woodwind</em></b></h6>
             </a>
         </div>
-        <div class="category-four">
+        <div class="category-four" id="category">
             <a (click)="categorizeProducts('Keyboards')">
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
@@ -308,7 +309,7 @@ m270 79 c8 -5 9 -159 5 -563 -9 -722 -27 -1514 -36 -1571 l-7 -45 -49 3 c-68
                 <h6><b><em>Keyboards</em></b></h6>
             </a>
         </div>
-        <div class="container d-flex">
+        <div class="container d-flex" id="category">
         <div class="all" >
             <a (click)="getAllProducts()">
                 <i class="fas fa-music fa-4x" style="padding-top: 7px; color: black;"></i>
@@ -370,7 +371,6 @@ m270 79 c8 -5 9 -159 5 -563 -9 -722 -27 -1514 -36 -1571 l-7 -45 -49 3 c-68
                     <p>{{item.productDescription}}</p>
                     <p><strong>Price:</strong> ${{item.productPrice}}</p>
                     <p><strong>Brand:</strong> {{item.brand}}</p>
-                    <button class="btn" (click)="addToCart(item)">Add to cart</button>
                 </div>
         </ng-container>
         

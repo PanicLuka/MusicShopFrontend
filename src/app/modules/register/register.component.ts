@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   isLoading = false;
   showSpinner = false;
   user!: User;
-  registerCredentials: User = { email: "", firstName: "", lastName: "", password: "", userId: 0 };
+  registerCredentials: User = { email: "", firstName: "", lastName: "", password: "", userId: 0, roleId: 1 };
 
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
 
     this.userService.createUser(this.registerCredentials)
       .subscribe(res => {
-        console.log(res);
+        console.log();
 
         this.invalidRegister = false;
         this.invalidRegisterMessage = false;

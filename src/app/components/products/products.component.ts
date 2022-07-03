@@ -61,7 +61,7 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts(this._pageNumber, this.pageSize)
       .subscribe(response => {
         this.productList = response;
-        console.log(this.pageSize + ' ' + this._pageNumber)
+        // console.log(this.pageSize + ' ' + this._pageNumber)
 
         this.productList.forEach((a: Product) => {
           Object.assign(a, { quantity: 1, total: a.productPrice });
@@ -111,7 +111,7 @@ export class ProductsComponent implements OnInit {
   }
 
   addToCart(item: Product) {
-    // localStorage.setItem('products', JSON.stringify(item));
+    localStorage.setItem('product' + ' ' + item.productId, JSON.stringify(item));
 
     this.cartService.addToCart(item);
 
@@ -119,14 +119,14 @@ export class ProductsComponent implements OnInit {
 
   getAllProducts() {
 
-    this.productService.getProducts(this._pageNumber, this.pageSize)
-      .subscribe(response => {
-        this.productList = response;
+    // this.productService.getProducts(this._pageNumber, this.pageSize)
+    //   .subscribe(response => {
+    //     this.productList = response;
 
-
-      }), (error: Error) => {
-        console.log(error.name + ' ' + error.message);
-      }
+    //   }), (error: Error) => {
+    //     console.log(error.name + ' ' + error.message);
+    //   }
+    this.loadData();
 
   }
 

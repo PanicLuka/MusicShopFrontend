@@ -16,8 +16,12 @@
                     <div class="col-md-12"><label class="labels">Email</label><input matInput type="text" class="form-control" placeholder="enter email " [(ngModel)]="userBindingObject.email"></div>
                     <div class="col-md-12"><label class="labels">Password</label><input matInput type="text" class="form-control" placeholder="enter new password" [(ngModel)]="userBindingObject.password"></div>
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" (click)="updateUser()" type="button">Save Profile</button></div>
-                <div class="btn-logout"><button class="btn btn-primary profile-button" (click)="logOut()" type="button">Log out</button></div>
+                <div class="mt-5 text-center"></div>
+
+                <div class="btn-logout">
+                    <button class="btn btn-primary profile-button" (click)="updateUser()" type="button">Save Profile</button>
+                    <hr>
+                    <button class="btn btn-primary profile-button" (click)="logOut()" type="button">Log out</button></div>
             </div>
         </div>
         

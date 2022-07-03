@@ -30,8 +30,10 @@ export class UserService {
 
   }
 
+
+
   public getUsers(pageSize: number, pageNumber: number): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.URL}/users`, {
+    return this.httpClient.get<User[]>(`${this.URL}/api/users`, {
       params: {
         pageSize: pageSize,
         pageNumber: pageNumber
@@ -40,7 +42,7 @@ export class UserService {
   }
 
   public getUserById(userId: number): Observable<User> {
-    return this.httpClient.get<User>(`${this.URL}/users/${userId}`);
+    return this.httpClient.get<User>(`${this.URL}/api/users/${userId}`);
   }
 
   public getUserByEmail(email: string): Observable<User> {
@@ -48,9 +50,10 @@ export class UserService {
   }
 
   public getUsersCount(): Observable<number> {
-    return this.httpClient.get<number>(`${this.URL}/users/count`);
+    return this.httpClient.get<number>(`${this.URL}/api/users/count`);
   }
   public createUser(user: User): Observable<User> {
+    user.roleId = Number(user.roleId);
     return this.httpClient.post<User>(`${this.URL}/api/users`, user);
   }
 
@@ -59,7 +62,7 @@ export class UserService {
   }
 
   public deleteUser(userId: number): Observable<User> {
-    return this.httpClient.delete<User>(`${this.URL}/users/${userId}`);
+    return this.httpClient.delete<User>(`${this.URL}/api/users/${userId}`);
   }
 
   public getToken(): string {

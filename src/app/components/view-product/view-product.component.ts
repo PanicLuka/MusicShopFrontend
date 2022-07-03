@@ -29,7 +29,7 @@ export class ViewProductComponent implements OnInit {
         // console.log(res)
         this.product = res;
         Object.assign(this.product, { quantity: 1 }, { total: this.product.productPrice })
-        console.log(this.product)
+        // console.log(this.product)
       }), (error: Error) => {
         console.log(error.name + ' ' + error.message);
       }
@@ -41,6 +41,7 @@ export class ViewProductComponent implements OnInit {
   }
 
   addToCart() {
+    localStorage.setItem('product' + ' ' + this.productId, JSON.stringify(this.product));
     this.cartService.addToCart(this.product)
     // console.log(this.product + ' this is a product');
 

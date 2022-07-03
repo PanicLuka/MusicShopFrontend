@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="content">
+    <!-- <app-title title="Order Summary" fontSize="1.6rem"></app-title> -->
+    <div class="summary">
+      <!-- <div>
+        <h3>Name:</h3>
+        <span>OrderName</span>
+      </div> -->
+      <!-- <div>
+        <h3>Address:</h3>
+        <span>{{address.address}} , {{address.city}} , {{address.country}}</span>
+      </div> -->
+    </div>
+     <table class="table table-responsive">
+                <p></p>
+                <tbody>
+                    <tr *ngFor="let item of products; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ item.productName}}</td>
+                        <td><img style="width: 120px;" src="" alt=""></td>
+                        <td>{{ item.productDescription}}</td>
+                        <th>${{ item.productPrice}}</th>
+                        <td>{{item.quantity}}</td>
+                        <td>${{item.total}}</td> 
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+    <!-- <order-items-list [order]="order"></order-items-list> -->
+  </div>
+  <div class="map">
+    <!-- <app-title
+    title="Shipping Address"
+    fontSize="1.6rem"></app-title> -->
+    <!-- <map [order]="order" [readonly]="true"></map> -->
+  </div>
+  <div class="buttons-container">
+    <div class="buttons">
+      <button mat-button class="btn" (click)="createPayment()">procced payment</button>
+        
+    </div>
+  </div>
+</div>

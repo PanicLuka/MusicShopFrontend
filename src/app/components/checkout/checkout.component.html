@@ -1,0 +1,82 @@
+
+
+
+<script src="https://js.stripe.com/v3/"></script>
+ 
+
+<div class="wrapper">
+    <div class="container">
+        <form action="">
+            <h1>
+                <i class="fas fa-shipping-fast" style="color: black;"></i>
+                Shipping Details
+            </h1>
+            
+            <div class="street">
+                <label for="name">Street</label>
+                <input type="text" name="address" [(ngModel)]="address">
+            </div>
+            <div class="street">
+                <label for="name">Phone number</label>
+                <input type="text" name="phone number" [(ngModel)]="phoneNumber">
+            </div>
+            <div class="address-info">
+                <div>
+                    <label for="city">City</label>
+                    <input type="text" name="city" [(ngModel)]="city">
+                </div>
+                <div>
+                    <label for="state">State</label>
+                    <input type="text" name="state" [(ngModel)]="state">
+                </div>
+                <div>
+                    <label for="zip">Zip</label>
+                    <input type="text" name="zip" [(ngModel)]="zipCode">
+                </div>
+            </div>
+            <h1>
+                <i class="far fa-credit-card"></i> Payment Information
+            </h1>
+
+             <div class="cc-num">
+                <label for="card-num">Credit Card name</label>
+                <input type="text" name="card-name" [(ngModel)]="creditCardName" required>
+            </div> 
+            <!-- <div class="cc-num" >
+                <label for="card-num">Credit Card No.</label>
+                <input #cardNumber type="text" name="card-num" >
+            </div> -->
+          <div class="row">
+              <div class="form-group col-6">
+                    <div id="cardNumber" class="form-control py-3">
+                    </div>
+                    <!-- <ng-container *ngIf="cardErrors">
+                           <span class="text-changer">{{cardErrors}}</span> 
+                    </ng-container> -->
+                            <div id="card-errors" role="alert"></div>
+
+            </div>
+           
+
+
+                <div class="form-group col-6">
+                    <div id="expiryDate" class="form-control py-3">
+                    </div>
+                            <div id="card-error" role="alert"></div>
+
+                </div>
+                <div class="form-group col-6">
+                    <div id="cvv" class="form-control py-3">
+                    </div>
+
+            </div>
+          </div>
+            <div class="btns">
+                <button (click)="purchase()">Purchase</button>
+                <button (click)="toCart()">Back</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
